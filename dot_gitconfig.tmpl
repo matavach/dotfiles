@@ -4,12 +4,14 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+{{- if contains "WSL" .chezmoi.kernel.osrelease}}
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+{{end}}
 [user]
-	name = Erik Matijevich
+	name = {{ .name | quote }}
 	email = {{ .email | quote }}
 [core]
 	autocrlf = false
