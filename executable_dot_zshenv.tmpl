@@ -1,0 +1,27 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export ZDOTDIR=$HOME/.config/zsh
+
+export HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history" 
+export HISTSIZE=10000                   # Maximum events for internal history
+export SAVEHIST=10000                   # Maximum events in history file
+export HISTORY_SUBSTRING_SEARCH_PREFIXED="true"
+
+export TIME_STYLE="+%m-%d-%y %I:%M%p"
+
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export P10K_CONF=$HOME/.config/zsh/.p10k.zsh
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+{{- if contains "WSL" .chezmoi.kernel.osrelease }}
+export BROWSER="/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+{{ end }}
+# Add Go
+export PATH=$PATH:/home/erik/go/bin
+
+
+
+

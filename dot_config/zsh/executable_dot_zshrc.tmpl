@@ -1,0 +1,38 @@
+if [[ "${ZSH_DEBUG}" == "1" ]]; then
+	zmodload zsh/zprof
+fi
+{{if contains "WSL" .chezmoi.kernel.osrelease }}
+export GALLIUM_DRIVER=d3d12
+export LIBVA_DRIVER_NAME=d3d12
+{{ end }}
+
+{{- if eq "p10k" .prompt}}
+# Enable Powerlevel10k instant prompt.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+{{- else if eq "starship" .chezmoi.data.prompt}}
+#Enable Starship
+eval "$(/usr/bin/starship init zsh)"
+{{end}}
+setopt complete_aliases
+
+# Set colors for folders/etc
+eval "$(dircolors -b "$ZDOTDIR/dircolors")"
+
+
+# Antidote
+source /usr/share/zsh-antidote/antidote.zsh
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+antidote load
+
+source <(chezmoi completion zsh)
+
+source $ZDOTDIR/.zsh_comp
+source $ZDOTDIR/.zsh_aliases
+source $ZDOTDIR/.zsh_bindkey
+{{if eq "p10k" .prompt}}
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
+{{end}}
+echo -ne "\e[0 q"

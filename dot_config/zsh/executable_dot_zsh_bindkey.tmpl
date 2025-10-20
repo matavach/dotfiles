@@ -1,0 +1,7 @@
+bindkey '^[[23~'  beginning-of-line
+bindkey '^[[24~'  end-of-line
+bindkey '\e[3~' delete-char
+bindkey '^@' autosuggest-accept
+bindkey '^I' menu-select
+bindkey -M menuselect '^I' menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
