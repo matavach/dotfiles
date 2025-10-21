@@ -1,25 +1,32 @@
 if [[ "${ZSH_DEBUG}" == "1" ]]; then
 	zmodload zsh/zprof
 fi
-{{if contains "WSL" .chezmoi.kernel.osrelease }}
+{{ if (stat "/usr/bin/thefuck")}}
+eval $(thefuck --alias)
+{{- end}}
+{{ if (stat "/usr/bin/ghostty")}}
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+{{- end}}
+
+{{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export GALLIUM_DRIVER=d3d12
 export LIBVA_DRIVER_NAME=d3d12
-{{ end }}
-
+{{- end }}
 {{- if eq "p10k" .prompt}}
 # Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-{{- else if eq "starship" .chezmoi.data.prompt}}
+{{ else if eq "starship" .chezmoi.data.prompt}}
 #Enable Starship
 eval "$(/usr/bin/starship init zsh)"
-{{end}}
+{{- end}}
 setopt complete_aliases
 
 # Set colors for folders/etc
 eval "$(dircolors -b "$ZDOTDIR/dircolors")"
-
 
 # Antidote
 source /usr/share/zsh-antidote/antidote.zsh
