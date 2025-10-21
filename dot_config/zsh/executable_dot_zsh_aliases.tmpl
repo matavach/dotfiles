@@ -28,3 +28,9 @@ gps() {
 gpl() {
 	git pull "$@"
 }
+
+lg() {
+  git add .;
+  git commit -m "$@"
+  git push
+}
