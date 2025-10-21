@@ -13,6 +13,8 @@ fi
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export GALLIUM_DRIVER=d3d12
 export LIBVA_DRIVER_NAME=d3d12
+echo -ne "\e[0 q"
+
 {{- end }}
 {{- if eq "p10k" .prompt}}
 # Enable Powerlevel10k instant prompt.
@@ -40,4 +42,3 @@ source $ZDOTDIR/.zsh_bindkey
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 {{end}}
-echo -ne "\e[0 q"
