@@ -1,0 +1,35 @@
+#compdef tflint
+
+# zsh completions for 'tflint'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-v,--version}'[print TFLint version]'
+  '--init[install plugins]'
+  '--langserver[start language server]'
+  {-f,--format}'[output format]'
+  {-c,--config}'[config file name (default: .tflint.hcl)]'
+  '--ignore-module[ignore module sources]'
+  '--enable-rule[enable rules from the command line]'
+  '--disable-rule[disable rules from the command line]'
+  '--only[enable only this rule, disabling all other defaults. Can be specified multiple times]'
+  '--enable-plugin[enable plugins from the command line]'
+  '--var-file[terraform variable file name]'
+  '--var[bar                                           Set a Terraform variable]'
+  '--call-module-type[types of module to call (default: local)]'
+  '--chdir[switch to a different working directory before executing the command]'
+  '--recursive[run command in each directory recursively]'
+  '--filter[filter issues by file names or globs]'
+  '--force[return zero exit status even if issues found]'
+  '--minimum-failure-severity[sets minimum severity level for exiting with a non-zero error code]'
+  '--color[enable colorized output]'
+  '--no-color[disable colorized output]'
+  '--fix[fix issues automatically]'
+  '--no-parallel-runners[disable per-runner parallelism]'
+  '--max-workers[set maximum number of workers in recursive inspection (default: number of CPUs)]'
+  {-h,--help}'[show this help message]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments
