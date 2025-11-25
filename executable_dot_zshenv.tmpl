@@ -20,7 +20,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
-export BROWSER="/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+export BROWSER="\"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\""
 {{ end }}
 # Add Go
 export PATH=$PATH:/home/erik/go/bin
