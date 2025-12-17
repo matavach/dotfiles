@@ -12,8 +12,8 @@ ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:defer
 
-#marlonrichert/zsh-autocomplete
-matavach/zsh-autocomplete
+marlonrichert/zsh-autocomplete
+#matavach/zsh-autocomplete
 
 #Additional Completions
 ohmyzsh/ohmyzsh path:plugins/chezmoi kind:fpath
