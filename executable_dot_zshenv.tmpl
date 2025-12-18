@@ -21,6 +21,8 @@ export VISUAL="nvim"
 
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export BROWSER="edge
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 {{ end }}
 # Add Go
 export PATH=$PATH:/home/erik/go/bin
