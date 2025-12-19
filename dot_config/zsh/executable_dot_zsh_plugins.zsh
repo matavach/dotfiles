@@ -39,6 +39,8 @@ if ! (( $+functions[zsh-defer] )); then
 fi
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide" )
 zsh-defer source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide/zoxide.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
+source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/chezmoi" )
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/terraform" )
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/azure" )
@@ -48,5 +50,3 @@ fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color/color.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/matavach/zsh-autocomplete" )
-source "$HOME/.cache/antidote/matavach/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
