@@ -5,3 +5,14 @@ bindkey '^@' autosuggest-accept
 bindkey '^I' menu-select
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+
+x-copy-selection () {
+  if [[ $MARK -ne $CURSOR ]]; then
+    local start=$(( MARK < CURSOR ? MARK : CURSOR ))
+    local length=$(( MARK > CURSOR ? MARK - CURSOR : CURSOR - MARK ))
+    local selected="${BUFFER:$start:$length}"
+    print -rn "$selected" | xclip -selection clipboard
+  fi
+}
+zle -N x-copy-selection
+bindkey '^_' x-copy-selection
