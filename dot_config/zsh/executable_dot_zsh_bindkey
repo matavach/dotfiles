@@ -14,5 +14,6 @@ x-copy-selection () {
     print -rn "$selected" | xclip -selection clipboard
   fi
 }
+
 zle -N x-copy-selection
-bindkey '^_' x-copy-selection
+bindkey '^C' x-copy-selection

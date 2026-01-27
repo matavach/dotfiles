@@ -50,3 +50,7 @@ fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color/color.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
+source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
+source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
