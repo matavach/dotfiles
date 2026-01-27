@@ -4,7 +4,6 @@ romkatv/powerlevel10k
 getantidote/use-omz
 
 zsh-users/zsh-autosuggestions
-zdharma-continuum/fast-syntax-highlighting
 
 zsh-users/zsh-history-substring-search
 
@@ -26,3 +25,4 @@ zsh-users/zsh-completions kind:clone path:src
 mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/environment
 
+zdharma-continuum/fast-syntax-highlighting
