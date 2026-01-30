@@ -11,7 +11,7 @@ zsh-users/zsh-history-substring-search
 ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:defer
-
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
 
 marlonrichert/zsh-autocomplete
 #matavach/zsh-autocomplete
@@ -20,6 +20,7 @@ marlonrichert/zsh-autocomplete
 ohmyzsh/ohmyzsh path:plugins/chezmoi kind:fpath
 ohmyzsh/ohmyzsh path:plugins/terraform kind:fpath
 ohmyzsh/ohmyzsh path:plugins/azure kind:fpath
+
 Morganamilo/paru path:blob/master/completions/zsh kind:fpath
 macunha1/zsh-terraform kind:fpath
 zsh-users/zsh-completions kind:clone path:src
