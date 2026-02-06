@@ -5,8 +5,8 @@ fpath+=( "$HOME/.cache/antidote/getantidote/use-omz" )
 source "$HOME/.cache/antidote/getantidote/use-omz/use-omz.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
 source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/zdharma-continuum/fast-syntax-highlighting" )
-source "$HOME/.cache/antidote/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/matavach/fast-syntax-highlighting" )
+source "$HOME/.cache/antidote/matavach/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-history-substring-search" )
 source "$HOME/.cache/antidote/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/lib" )
@@ -39,6 +39,8 @@ if ! (( $+functions[zsh-defer] )); then
 fi
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide" )
 zsh-defer source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide/zoxide.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch" )
+source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch/git-auto-fetch.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
 source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/chezmoi" )
@@ -50,7 +52,5 @@ fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color/color.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
-source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
 source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"

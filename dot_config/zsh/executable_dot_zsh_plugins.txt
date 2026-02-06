@@ -4,7 +4,7 @@ romkatv/powerlevel10k
 getantidote/use-omz
 
 zsh-users/zsh-autosuggestions
-zdharma-continuum/fast-syntax-highlighting
+matavach/fast-syntax-highlighting
 
 zsh-users/zsh-history-substring-search
 
@@ -14,7 +14,6 @@ ohmyzsh/ohmyzsh path:plugins/zoxide kind:defer
 ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
 
 marlonrichert/zsh-autocomplete
-#matavach/zsh-autocomplete
 
 #Additional Completions
 ohmyzsh/ohmyzsh path:plugins/chezmoi kind:fpath
@@ -27,5 +26,4 @@ zsh-users/zsh-completions kind:clone path:src
 
 mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/environment
-Michael-Matta1/zsh-edit-select
 Michael-Matta1/zsh-edit-select
