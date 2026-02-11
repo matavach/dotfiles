@@ -430,42 +430,13 @@ _pacman_completions_all_groups() {
 # provides completions for packages available from repositories
 # these can be specified as either 'package' or 'repository/package'
 _pacman_completions_all_packages() {
-	local -a seq sep cmd packages repositories packages_long
+  return
 
-	if [[ ${words[CURRENT-1]} == '--ignore' ]]; then
-		seq='_sequence'
-		sep=(-S ',')
-	else
-		seq=
-		sep=()
-	fi
-
-	if compset -P1 '*/*'; then
-		packages=( $(_call_program packages paru -Pc ${words[CURRENT]%/*}) )
-		typeset -U packages
-		${seq} _wanted repo_packages expl "repository/package" compadd ${sep[@]} ${(@)packages}
-	else
-		packages=( $(_call_program packages paru -Pc ) )
-		typeset -U packages
-		${seq} _wanted packages expl "packages" compadd ${sep[@]} - "${(@)packages}"
-
-		repositories=($(pacman-conf --repo-list) \
-			$(_call_program packages paru -Sl --pkgbuilds | cut -d ' ' -f1 | uniq))
-		typeset -U repositories
-		_wanted repo_packages expl "repository/package" compadd -S "/" $repositories
-	fi
 }
 
 _pacman_completions_aur_packages() {
   # make sure cache is full
-  paru -Pc >/dev/null
-
-  local cache_file=${XDG_CACHE_HOME:-$HOME/.cache}/paru/packages.aur
-  if [ ! -f $cache_file ]; then
-    return
-  fi
-  local -a packages=( $(< $cache_file) )
-  _wanted packages expl "AUR packages" compadd ${(@)packages}
+  return
 }
 
 # provides completions for package groups
