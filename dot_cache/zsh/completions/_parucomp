@@ -580,13 +580,11 @@ _pacman_zsh_comp() {
 			_arguments -s : \
 				"$_pacman_opts_common[@]" \
 				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package repo:_pacman_completions_repositories' \
 			;;
 		S*g*) # pkg groups
 			_arguments -s : \
 				"$_pacman_opts_common[@]" \
 				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package group:_pacman_completions_all_groups'
 			;;
 		S*s*)
 			_arguments -s : \
@@ -601,7 +599,6 @@ _pacman_zsh_comp() {
 			 _arguments -s : \
 				'-T' \
 				"$_pacman_opts_common[@]" \
-				":packages:_pacman_all_packages"
 			;;
 		U*)
 			_pacman_action_upgrade
