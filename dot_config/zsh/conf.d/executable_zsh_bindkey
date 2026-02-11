@@ -1,0 +1,3 @@
+bindkey '^[[23~'  beginning-of-line
+bindkey '^[[24~'  end-of-line
+bindkey '\e[3~' delete-char

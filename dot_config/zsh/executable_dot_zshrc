@@ -1,0 +1,39 @@
+if [[ "${ZSH_DEBUG}" == "1" ]]; then
+	zmodload zsh/zprof
+fi
+
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+
+export GALLIUM_DRIVER=d3d12
+export LIBVA_DRIVER_NAME=d3d12
+
+# Enable Powerlevel10k instant prompt.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+setopt complete_aliases
+
+# Set colors for folders/etc
+# eval "$(dircolors -b "$ZDOTDIR/dircolors")"
+
+# Antidote
+source /usr/share/zsh-antidote/antidote.zsh
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+antidote load
+
+# Source plugins
+for _rc in $ZDOTDIR/conf.d/*; do
+  source "$_rc"
+done
+unset _rc
+
+for _rc in $ZDOTDIR/plugins.d/*; do
+  source "$_rc"
+done
+unset _rc
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"

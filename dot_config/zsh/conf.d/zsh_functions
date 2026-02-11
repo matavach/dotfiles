@@ -1,0 +1,21 @@
+gs() {
+	git status "$@"
+}
+ga() {
+	git add "$@"
+}
+gc() { 
+	git commit "$@"
+}
+gps() {
+	git push "$@"
+}
+gpl() {
+	git pull "$@"
+}
+
+lg() {
+  git add .;
+  git commit -m "$@"
+  git push
+}

@@ -1,0 +1,8 @@
+alias ls="eza -l --group-directories-first --icons"
+alias cd="z"
+alias cat="bat --style='default,-header-filename'"
+alias grep="rg --color always"
+alias cz='chezmoi'
+alias tf="terraform"
+alias cls="clear"
+alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"

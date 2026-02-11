@@ -1,0 +1,23 @@
+# .zsh_plugins.txt - comments begin with "#"
+
+romkatv/powerlevel10k
+getantidote/use-omz
+
+zsh-users/zsh-autosuggestions
+matavach/fast-syntax-highlighting
+
+zsh-users/zsh-history-substring-search
+
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/zoxide kind:defer
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
+
+marlonrichert/zsh-autocomplete
+
+macunha1/zsh-terraform kind:fpath
+zsh-users/zsh-completions kind:clone path:src
+
+mattmc3/zephyr path:plugins/color
+mattmc3/zephyr path:plugins/environment
+Michael-Matta1/zsh-edit-select

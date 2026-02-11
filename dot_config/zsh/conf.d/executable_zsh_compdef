@@ -1,0 +1,6 @@
+compdef _tf tf
+compdef _eza ls
+compdef _rg grep
+compdef "_git add" ga
+compdef _chezmoi cz
+compdef _parucomp paru
