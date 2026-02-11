@@ -360,20 +360,17 @@ _pacman_action_sync() {
 				"$_pacman_opts_common[@]" \
 				"$_pacman_opts_sync_modifiers[@]" \
 				'(-g --group)'{-g,--groups} \
-				'*:package group:_pacman_completions_all_groups'
 			;;
 		sync_search)
 			_arguments -s : \
 				"$_pacman_opts_common[@]" \
 				"$_pacman_opts_sync_modifiers[@]" \
-				'*:search text: '
 			;;
 		*)
 			_arguments -s : \
 				"$_pacman_opts_common[@]" \
 				"$_pacman_opts_sync_actions[@]" \
 				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package:_pacman_completions_all_packages'
 			;;
 	esac
 }
