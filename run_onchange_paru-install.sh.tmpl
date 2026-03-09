@@ -1,7 +1,7 @@
 {{ if contains "arch" .chezmoi.osRelease.id -}}
 #!/bin/bash
 
-if [[ -n $(paru -Qq | grep '^paru$') ]]; then
+if [[ -z $(paru -Qq | grep '^paru$') ]]; then
   sudo pacman -S --needed base-devel git
   git clone https://aur.archlinux.org/paru.git
   cd paru
