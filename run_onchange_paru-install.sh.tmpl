@@ -7,7 +7,7 @@ if [[ -n $(paru -Qq | grep '^paru$') ]]; then
   cd paru
   makepkg -si
   paru -S --noconfirm paru
-end
+fi
 
 {{ end }}
 exit 0
