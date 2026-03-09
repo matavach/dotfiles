@@ -1,4 +1,4 @@
-{{- if contains "arch" .chezmoi.osRelease.id }}
+{{- if contains "arch" .chezmoi.osRelease.id -}}
 #!/bin/bash
 
 if [[ -n $(paru -Qq | grep ''^paru$') ]]; then
