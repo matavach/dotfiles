@@ -6,8 +6,8 @@ if [[ -n $(paru -Qq | grep '^paru$') ]]; then
   git clone https://aur.archlinux.org/paru.git
   cd paru
   makepkg -si
+  paru -S --noconfirm paru
 end
 
-paru -S --noconfirm paru
-
 {{ end }}
+exit 0
