@@ -21,7 +21,7 @@ export VISUAL="nvim"
 
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export BROWSER=edge
-export SSL_CERT_FILE=/etc/ssl/certs/cert.pem
+export SSL_CERT_FILE=/etc/ssl/cert.pem
 export REQUESTS_CA_BUNDLE=/etc/ssl/cert.pem
 export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 {{ end }}
