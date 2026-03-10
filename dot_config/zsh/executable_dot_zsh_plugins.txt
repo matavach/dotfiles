@@ -12,7 +12,7 @@ ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:defer
 ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
-
+greymd/docker-zsh-completion kind:fpath
 marlonrichert/zsh-autocomplete
 
 macunha1/zsh-terraform kind:fpath
