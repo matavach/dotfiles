@@ -5,4 +5,4 @@ alias grep="rg --color always"
 alias cz='chezmoi'
 alias tf="terraform"
 alias cls="clear"
-alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
+alias code="/mnt/c/Users/ematijevich/scoop/apps/vscode/current/bin/code"
