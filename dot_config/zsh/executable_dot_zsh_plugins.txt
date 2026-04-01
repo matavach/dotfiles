@@ -5,7 +5,6 @@ romkatv/powerlevel10k
 getantidote/use-omz
 Michael-Matta1/zsh-edit-select
 
-zsh-users/zsh-autosuggestions
 matavach/fast-syntax-highlighting
 
 zsh-users/zsh-history-substring-search
@@ -23,3 +22,5 @@ mattmc3/zephyr path:plugins/environment
 romkatv/zsh-defer
 
 marlonrichert/zsh-autocomplete
+
+zsh-users/zsh-autosuggestions
