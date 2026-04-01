@@ -1,8 +1,11 @@
+fpath+=( "$HOME/.cache/antidote/greymd/docker-zsh-completion" )
 fpath+=( "$HOME/.cache/antidote/romkatv/powerlevel10k" )
 source "$HOME/.cache/antidote/romkatv/powerlevel10k/powerlevel10k.zsh-theme"
 source "$HOME/.cache/antidote/romkatv/powerlevel10k/powerlevel9k.zsh-theme"
 fpath+=( "$HOME/.cache/antidote/getantidote/use-omz" )
 source "$HOME/.cache/antidote/getantidote/use-omz/use-omz.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
+source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
 source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/matavach/fast-syntax-highlighting" )
@@ -41,12 +44,11 @@ fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide" )
 zsh-defer source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide/zoxide.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch" )
 source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch/git-auto-fetch.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
-source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/macunha1/zsh-terraform" )
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color/color.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
-source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/romkatv/zsh-defer" )
+source "$HOME/.cache/antidote/romkatv/zsh-defer/zsh-defer.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
+source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
