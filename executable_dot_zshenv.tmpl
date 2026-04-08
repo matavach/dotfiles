@@ -28,8 +28,8 @@ export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 # Add Go
 export PATH=$PATH:/home/erik/go/bin
 
-
-ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
 
 # UV
 export PATH="/home/erik/.local/share/../bin:$PATH"
