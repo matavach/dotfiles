@@ -15,7 +15,11 @@ gpl() {
 }
 
 c() {
-  code "$@"
+  if [[ -z "$@" ]]; then
+    code $(pwd)
+  else
+    code "$@"
+  fi
 }
 
 lg() {
