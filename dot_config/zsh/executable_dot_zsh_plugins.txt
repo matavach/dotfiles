@@ -20,7 +20,7 @@ zsh-users/zsh-completions kind:clone path:src
 mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/environment
 romkatv/zsh-defer
-
+lukechilds/zsh-better-npm-completion
 marlonrichert/zsh-autocomplete
 
 zsh-users/zsh-autosuggestions
