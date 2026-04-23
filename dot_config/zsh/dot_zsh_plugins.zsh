@@ -6,8 +6,6 @@ fpath+=( "$HOME/.cache/antidote/getantidote/use-omz" )
 source "$HOME/.cache/antidote/getantidote/use-omz/use-omz.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select" )
 source "$HOME/.cache/antidote/Michael-Matta1/zsh-edit-select/zsh-edit-select.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
-source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/matavach/fast-syntax-highlighting" )
 source "$HOME/.cache/antidote/matavach/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-history-substring-search" )
@@ -50,5 +48,9 @@ fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/romkatv/zsh-defer" )
 source "$HOME/.cache/antidote/romkatv/zsh-defer/zsh-defer.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/lukechilds/zsh-better-npm-completion" )
+source "$HOME/.cache/antidote/lukechilds/zsh-better-npm-completion/zsh-better-npm-completion.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
 source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
+source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
