@@ -22,6 +22,14 @@ c() {
   fi
 }
 
+az() {
+    if [[ "$*" == *"-s"* ]]; then
+        command az "$@" | jq .
+    else
+        command az "$@"
+    fi
+}
+
 lg() {
   git add .;
   git commit -m "$@"
