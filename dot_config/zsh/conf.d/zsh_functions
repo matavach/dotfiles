@@ -24,9 +24,11 @@ c() {
 
 az() {
   if [[ "$*" == *"-o table" ]]; then
-  command az "$@"
-else
-  command az "$@" | jq .
+    command az "$@"
+  elif [[ "$*" == *"-o tsv" ]]; then
+    command az "$@"
+  else
+    command az "$@" | jq .
   fi
 }
 
