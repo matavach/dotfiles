@@ -23,7 +23,11 @@ c() {
 }
 
 az() {
+  if [[ "$*" == *"-o table"]]; then
+  command az "$@"
+else
   command az "$@" | jq .
+  fi
 }
 
 lg() {
