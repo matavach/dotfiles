@@ -23,11 +23,7 @@ c() {
 }
 
 az() {
-    if [[ "$*" == *"-s"* ]]; then
-        command az "$@" | jq .
-    else
-        command az "$@"
-    fi
+  command az "$@" | jq .
 }
 
 lg() {
