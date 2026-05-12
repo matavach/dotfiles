@@ -22,6 +22,14 @@ c() {
   fi
 }
 
+curl() {
+  if [[ "$*" == *"-s"* ]]; then
+    command curl "$@" | jq .
+  else
+    command curl "$@"
+  fi
+}
+
 az() {
   if [[ "$*" == *"-o table" ]]; then
     command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D
