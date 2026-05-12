@@ -24,9 +24,9 @@ c() {
 
 az() {
   if [[ "$*" == *"-o table" ]]; then
-    command az "$@"
+    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D
   elif [[ "$*" == *"-o tsv" ]]; then
-    command az "$@"
+    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D
   else
     command az "$@" | jq .
   fi
