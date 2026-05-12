@@ -1,0 +1,34 @@
+#compdef tidy-viewer
+
+# zsh completions for 'tidy-viewer'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-C,--config-details}'[show the current config details]'
+  {-d,--debug-mode}'[print object details to make it easier for the maintainer to find and resolve bugs.]'
+  {-e,--extend-width-and-length}'[extended width beyond term width (do not truncate). Useful with `less -S`.]'
+  {-f,--force-all-rows}'[print all rows in file. May be piped to less -S. Example `tidy-viewer]'
+  {-a,--color-always}'[always force color output. Example `tv -a starwars.csv | less -R` or `tv -a]'
+  {-h,--help}'[prints help information]'
+  {-D,--no-dimensions}'[turns off dimensions of the data]'
+  {-R,--no-row-numbering}'[turns off row numbering]'
+  '--no-streaming[disable streaming mode even for large files]'
+  {-p,--pedantic}'[crashes when csv input is malformed. Useful to check for valid csv data.]'
+  '--preserve-scientific[preserve existing scientific notation in input data]'
+  {-j,--jump-invalid-rows}'[jump over (skip) invalid rows in the file. This includes rows with the incorrect]'
+  {-V,--version}'[prints version information]'
+  {-c,--color}'[there are 5 preconfigured color palettes (Defaults to nord):]'
+  {-s,--delimiter}'[the delimiter separating the columns.]'
+  {-F,--footer}'[add a footer to your tv. Example footer info \[default: NA\]]'
+  {-l,--lower-column-width}'[the lower (minimum) width of columns. Must be 2 or larger. \[default: 2\]]'
+  '--max-decimal-width[auto-switch to scientific notation when decimal representation exceeds N characters \[default: 13\]]'
+  {-n,--number-of-rows-to-output}'[show how many rows to display. \[default: 25\]]'
+  {-g,--sigfig}'[significant Digits. Default 3. Max is 7 \[default: 3\]]'
+  '--streaming-threshold[file size threshold in MB to automatically enable streaming mode \[default: 5\]]'
+  {-t,--title}'[add a title to your tv. Example Test Data \[default: NA\]]'
+  {-u,--upper-column-width}'[the upper (maximum) width of columns. \[default: 20\]]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments
