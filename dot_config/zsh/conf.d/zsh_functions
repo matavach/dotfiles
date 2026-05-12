@@ -32,9 +32,9 @@ curl() {
 
 az() {
   if [[ "$*" == *"-o table" ]]; then
-    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D
+    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e
   elif [[ "$*" == *"-o tsv" ]]; then
-    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D
+    command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e
   else
     command az "$@" | jq .
   fi
