@@ -30,15 +30,15 @@ curl() {
   fi
 }
 
-# az() {
-  # if [[ "$*" == *"-o table" ]]; then
-    # command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
-  # elif [[ "$*" == *"-o tsv" ]]; then
-    # command az "$@" | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
-  # else
-    # command az "$@" | jq .
-  # fi
-# }
+az() {
+  if [[ "$*" == *"-o table" ]]; then
+    command az "$@" | sed -E 's/\s+/,/g' | sed -e '2d' | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
+  elif [[ "$*" == *"-o tsv" ]]; then
+    command az "$@" | sed -E 's/\s+/,/g' | sed -e '2d' | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
+  else
+    command az "$@" | jq .
+  fi
+}
 
 lg() {
   git add .;
