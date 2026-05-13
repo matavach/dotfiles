@@ -23,8 +23,16 @@ c() {
 }
 
 curl() {
+  TEMP=$(mktemp)
   if [[ "$*" == *"-s"* ]]; then
-    command curl "$@" | jq .
+    command curl "$@" > "$TEMP"
+    
+    if [[ $(file "$TEMP") == *"HTML"* ]]; then
+      command bat $TEMP --no-paging --no-config --decorations=never
+    elif [[ $(file "$TEMP") == *"JSON"* ]]; then
+      command jq  $TEMP
+    else
+      command bat $TEMP --no-paging --no-config --decorations=never
   else
     command curl "$@"
   fi
