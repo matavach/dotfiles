@@ -6,3 +6,4 @@ compdef _chezmoi cz
 compdef _parucomp paru
 compdef _code c
 compdef _tidy-viewer tv
+compdef _bat cat
