@@ -33,6 +33,7 @@ curl() {
       command jq  $TEMP
     else
       command bat $TEMP --no-paging --no-config --decorations=never
+    fi
   else
     command curl "$@"
   fi
