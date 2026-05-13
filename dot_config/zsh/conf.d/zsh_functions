@@ -28,7 +28,7 @@ curl() {
     command curl "$@" > "$TEMP"
     
     if [[ $(file "$TEMP") == *"HTML"* ]]; then
-      command bat $TEMP --no-paging --no-config --decorations=never
+      command pup -f $TEMP -p -i | bat --no-paging --no-config --decorations=never
     elif [[ $(file "$TEMP") == *"JSON"* ]]; then
       command jq  $TEMP
     else
