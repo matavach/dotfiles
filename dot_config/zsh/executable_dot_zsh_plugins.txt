@@ -24,3 +24,4 @@ romkatv/zsh-defer
 marlonrichert/zsh-autocomplete
 
 zsh-users/zsh-autosuggestions
+RobSis/zsh-completion-generator

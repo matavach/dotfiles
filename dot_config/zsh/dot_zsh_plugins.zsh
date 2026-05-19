@@ -42,15 +42,17 @@ fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide" )
 zsh-defer source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/zoxide/zoxide.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch" )
 source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/git-auto-fetch/git-auto-fetch.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/azure" )
+source "$HOME/.cache/antidote/ohmyzsh/ohmyzsh/plugins/azure/azure.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/color/color.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/romkatv/zsh-defer" )
 source "$HOME/.cache/antidote/romkatv/zsh-defer/zsh-defer.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/lukechilds/zsh-better-npm-completion" )
-source "$HOME/.cache/antidote/lukechilds/zsh-better-npm-completion/zsh-better-npm-completion.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
 source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
 source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/RobSis/zsh-completion-generator" )
+source "$HOME/.cache/antidote/RobSis/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
