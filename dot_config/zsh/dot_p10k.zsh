@@ -380,7 +380,7 @@
       local   modified='%178F'  # yellow foreground
       local  untracked='%39F'   # blue foreground
       local conflicted='%196F'  # red foreground
-      local    bracket='%100F'
+      local    bracket='%70F'
     else
       # Styling for incomplete and stale Git status.
       local       meta='%244F'  # grey foreground
