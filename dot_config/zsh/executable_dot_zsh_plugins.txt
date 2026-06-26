@@ -21,7 +21,8 @@ mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/environment
 romkatv/zsh-defer
 
-marlonrichert/zsh-autocomplete
+# marlonrichert/zsh-autocomplete
 
 zsh-users/zsh-autosuggestions
 RobSis/zsh-completion-generator
+SaeGon-Heo/zsh-autocomplete

@@ -50,9 +50,9 @@ fpath+=( "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment" )
 source "$HOME/.cache/antidote/mattmc3/zephyr/plugins/environment/environment.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/romkatv/zsh-defer" )
 source "$HOME/.cache/antidote/romkatv/zsh-defer/zsh-defer.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete" )
-source "$HOME/.cache/antidote/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
 source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/RobSis/zsh-completion-generator" )
 source "$HOME/.cache/antidote/RobSis/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/SaeGon-Heo/zsh-autocomplete" )
+source "$HOME/.cache/antidote/SaeGon-Heo/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
