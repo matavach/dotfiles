@@ -38,17 +38,18 @@ curl() {
   fi
 }
 
-az() {
-  if [[ "$*" == *"-o table" ]]; then
-    command az "$@" | sed -E 's/\s+/,/g' | sed -e '2d' | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
-  elif [[ "$*" == *"-o tsv" ]]; then
-    command az "$@" | sed -E 's/\s+/,/g' | sed -e '2d' | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
-  elif [[ "$*" == *"-o json" ]]; then
-    command az "$@" | jq .
-  else
-    command az "$@"
-  fi
-}
+# az() {
+  # if [[ "$*" == *"-o table" ]]; then
+  #
+  #
+  # elif [[ "$*" == *"-o tsv" ]]; then
+  #   command az "$@" | sed -E 's/\s+/,/g' | sed -e '2d' | tv -c 3 -a -R --force-all-rows --jump-invalid-rows -D -e -l 10
+  # elif [[ "$*" == *"-o json" ]]; then
+  #   command az "$@" | jq .
+  # else
+  #   command az "$@"
+#   fi
+# }
 
 lg() {
   git add .;
