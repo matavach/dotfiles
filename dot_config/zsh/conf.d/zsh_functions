@@ -56,3 +56,10 @@ lg() {
   git commit -m "$@"
   git push
 }
+
+# Restore the terminal's blinking-bar cursor before each prompt. Programs like
+# nvim leave a block cursor behind on exit (DECSCUSR has no save/restore), so we
+# reassert the preferred shape whenever control returns to the shell.
+autoload -Uz add-zsh-hook
+_restore_cursor_shape() { print -n '\e[5 q'; }
+add-zsh-hook precmd _restore_cursor_shape
