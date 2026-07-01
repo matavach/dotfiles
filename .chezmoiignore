@@ -12,3 +12,8 @@
 
 # Cached dircolors output (regenerated when the dircolors source changes).
 .cache/zsh/dircolors.zsh
+
+# WSL-only files: skip on non-WSL machines (Edge wrapper is only used under WSL).
+{{ if not (contains "WSL" .chezmoi.kernel.osrelease) }}
+.local/bin/edge-open
+{{ end }}
