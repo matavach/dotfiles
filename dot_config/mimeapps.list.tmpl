@@ -1,5 +1,9 @@
-
 [Default Applications]
+# Cross-platform defaults (apply on both WSL and native Linux) go here.
+
+{{ if contains "WSL" .chezmoi.kernel.osrelease -}}
+# WSL-only: route web/html to the Windows Edge wrapper (edge.desktop).
 x-scheme-handler/http=edge.desktop
 x-scheme-handler/https=edge.desktop
 text/html=edge.desktop
+{{ end -}}
