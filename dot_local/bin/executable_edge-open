@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Wrapper so xdg-open can launch the Windows install of Microsoft Edge (WSL).
+# Use PowerShell's Start-Process so URLs open as a new tab in the existing Edge
+# window. (cmd.exe's `start` mangles URLs containing '&', breaking az login.)
+ps='/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
+edge='C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+exec "$ps" -NoProfile -Command "Start-Process -FilePath '$edge' -ArgumentList '$*'"
