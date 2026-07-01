@@ -57,9 +57,14 @@ lg() {
   git push
 }
 
-# Restore the terminal's blinking-bar cursor before each prompt. Programs like
-# nvim leave a block cursor behind on exit (DECSCUSR has no save/restore), so we
-# reassert the preferred shape whenever control returns to the shell.
-autoload -Uz add-zsh-hook
-_restore_cursor_shape() { print -n '\e[5 q'; }
-add-zsh-hook precmd _restore_cursor_shape
+# nvim leaves a block cursor behind on exit (DECSCUSR has no save/restore).
+# Wrap nvim to restore the blinking-bar cursor right after it exits. Doing it
+# here — instead of in a precmd/zle hook — keeps the escape out of Powerlevel10k's
+# prompt-render cycle, which otherwise caused a blank line (precmd) or a cursor
+# flash at column 0 (zle line-init).
+nvim() {
+  command nvim "$@"
+  local ret=$?
+  print -n '\e[5 q'
+  return $ret
+}
