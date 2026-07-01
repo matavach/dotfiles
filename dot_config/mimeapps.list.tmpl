@@ -1,5 +1,8 @@
 [Default Applications]
 # Cross-platform defaults (apply on both WSL and native Linux) go here.
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+application/json=nvim.desktop
 
 {{ if contains "WSL" .chezmoi.kernel.osrelease -}}
 # WSL-only: route web/html to the Windows Edge wrapper (edge.desktop).
