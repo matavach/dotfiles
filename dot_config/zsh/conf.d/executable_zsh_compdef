@@ -1,9 +1,20 @@
 compdef _tf tf
 compdef _eza ls
 compdef _rg grep
-compdef "_git add" ga
-compdef _chezmoi cz
+compdef _git ga=git-add
 compdef _parucomp paru
 compdef _code c
 compdef _tidy-viewer tv
 compdef _bat cat
+
+# chezmoi ships its own completion. Cache it (regenerate only when the chezmoi
+# binary changes) and bind it to both `chezmoi` and the `cz` alias.
+if (( $+commands[chezmoi] )); then
+  _cz_comp="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/chezmoi-completion.zsh"
+  if [[ ! -s $_cz_comp || $commands[chezmoi] -nt $_cz_comp ]]; then
+    chezmoi completion zsh >| $_cz_comp 2>/dev/null
+  fi
+  source $_cz_comp
+  compdef _chezmoi cz
+  unset _cz_comp
+fi
