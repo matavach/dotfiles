@@ -1,0 +1,10 @@
+{{ if contains "WSL" .chezmoi.kernel.osrelease -}}
+#!/bin/sh
+# Register the Windows Edge wrapper (edge.desktop) as the default handler for
+# http/https/html so xdg-open and az login route to Edge under WSL.
+# Re-runs automatically whenever edge.desktop changes, via this content hash:
+# edge.desktop sha256: {{ include "dot_local/share/applications/edge.desktop.tmpl" | sha256sum }}
+set -eu
+update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+xdg-mime default edge.desktop x-scheme-handler/http x-scheme-handler/https text/html
+{{ end -}}

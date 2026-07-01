@@ -16,4 +16,5 @@
 # WSL-only files: skip on non-WSL machines (Edge wrapper is only used under WSL).
 {{ if not (contains "WSL" .chezmoi.kernel.osrelease) }}
 .local/bin/edge-open
+.local/share/applications/edge.desktop
 {{ end }}
