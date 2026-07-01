@@ -1,3 +1,12 @@
+function {
+  0=${(%):-%x}
+  local staticfile=${0:A}
+  [[ -e ${staticfile} ]] || return 1
+  if [[ ! -s ${staticfile}.zwc || ${staticfile} -nt ${staticfile}.zwc ]]; then
+    builtin autoload -Uz zrecompile
+    zrecompile -pq ${staticfile}
+  fi
+}
 fpath+=( "$HOME/.cache/antidote/greymd/docker-zsh-completion" )
 fpath+=( "$HOME/.cache/antidote/romkatv/powerlevel10k" )
 source "$HOME/.cache/antidote/romkatv/powerlevel10k/powerlevel10k.zsh-theme"
@@ -52,7 +61,5 @@ fpath+=( "$HOME/.cache/antidote/romkatv/zsh-defer" )
 source "$HOME/.cache/antidote/romkatv/zsh-defer/zsh-defer.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions" )
 source "$HOME/.cache/antidote/zsh-users/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/RobSis/zsh-completion-generator" )
-source "$HOME/.cache/antidote/RobSis/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/SaeGon-Heo/zsh-autocomplete" )
 source "$HOME/.cache/antidote/SaeGon-Heo/zsh-autocomplete/zsh-autocomplete.plugin.zsh"

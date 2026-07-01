@@ -22,7 +22,17 @@ eval "$(dircolors -b "$ZDOTDIR/dircolors")"
 # Antidote
 source /usr/share/zsh-antidote/antidote.zsh
 zstyle ':antidote:bundle' use-friendly-names 'yes'
+# Byte-compile the static load file and bundles (.zwc) for faster sourcing.
+zstyle ':antidote:*' zcompile 'yes'
 antidote load
+
+# Completion generator (RobSis/zsh-completion-generator) is expensive at load and
+# only needed on demand to run `gencomp`. Load it only when ZSH_GENCOMP=1.
+if [[ "${ZSH_GENCOMP}" == "1" ]]; then
+  _gencomp_plugin="${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/antidote}/RobSis/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
+  [[ -r "$_gencomp_plugin" ]] && source "$_gencomp_plugin"
+  unset _gencomp_plugin
+fi
 
 # Source plugins
 for _rc in $ZDOTDIR/conf.d/*; do

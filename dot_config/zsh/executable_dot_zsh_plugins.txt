@@ -17,6 +17,9 @@ ohmyzsh/ohmyzsh path:plugins/azure
 # macunha1/zsh-terraform kind:fpath
 zsh-users/zsh-completions kind:clone path:src
 
+# Cloned but not loaded; sourced on demand via ZSH_GENCOMP=1 (see .zshrc).
+RobSis/zsh-completion-generator kind:clone
+
 mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/environment
 romkatv/zsh-defer
@@ -24,5 +27,4 @@ romkatv/zsh-defer
 # marlonrichert/zsh-autocomplete
 
 zsh-users/zsh-autosuggestions
-RobSis/zsh-completion-generator
 SaeGon-Heo/zsh-autocomplete
