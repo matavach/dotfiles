@@ -2,6 +2,10 @@ compdef _tf tf
 compdef _eza ls
 compdef _rg grep
 compdef _git ga=git-add
+compdef _git gs=git-status
+compdef _git gc=git-commit
+compdef _git gps=git-push
+compdef _git gpl=git-pull
 compdef _parucomp paru
 compdef _code c
 compdef _tidy-viewer tv
