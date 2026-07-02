@@ -16,6 +16,11 @@
 # Cached chezmoi completion (regenerated when the chezmoi binary changes).
 .cache/zsh/chezmoi-completion.zsh
 
+# Shell history and history-derived caches — machine-local state, never synced.
+.config/zsh/.zsh_history
+.cache/zsh/.zsh_history
+.cache/zsh/history-commands
+
 # WSL-only files: skip on non-WSL machines (Edge wrapper is only used under WSL).
 {{ if not (contains "WSL" .chezmoi.kernel.osrelease) }}
 .local/bin/edge-open
