@@ -11,6 +11,70 @@ compdef _code c
 compdef _tidy-viewer tv
 compdef _bat cat
 
+# Hide internal functions from command/function completion — they are never
+# called manually and just clutter autocompletion:
+#   '*.*' '*:*' '+*'  = zsh-autocomplete's own defaults (this style REPLACES
+#                       the plugin's, so they must be repeated here)
+#   '_*'              = completion functions (_git, _rg, ...)
+#   p9k/p10k/...      = powerlevel10k / gitstatus internals
+zstyle ':completion:*:functions' ignored-patterns \
+  '*.*' '*:*' '+*' '_*' \
+  '(*p9k*|p10k*|gitstatus*|instant?prompt*|prompt_*)'
+
+# --- Filter rarely-used external commands in command position ---------------
+# Most binaries in $PATH are never typed by a human. Build an allowlist of
+# commands actually used in shell history (cached, refreshed daily) and hide
+# all other external commands from first-word completion. Hidden commands stay
+# reachable: the _ignored completer still offers them whenever nothing in the
+# allowlist matches what you typed.
+_hist_commands_rebuild() {
+  emulate -L zsh -o extendedglob
+  local cache="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history-commands"
+  if [[ -r $HISTFILE && ( ! -s $cache || -n $cache(#qN.mh+24) ) ]]; then
+    local line w
+    local -a words
+    local -aU cmds
+    local -i expect
+    while IFS= read -r line; do
+      words=( ${(z)${line#: <->:<->;}} )   # strip extended-history prefix
+      expect=1
+      for w in $words; do
+        if (( expect )); then
+          case $w in
+            # skip env assignments and wrappers; the real command follows
+            (*=*|\!|time|nohup|noglob|nocorrect|sudo|command|builtin|exec|xargs) ;;
+            # plausible bare command name -> record it
+            ([[:alnum:]_.+-]##) cmds+=( $w ); expect=0 ;;
+            (*) expect=0 ;;
+          esac
+        elif [[ $w == (\;|\;\;|\||\|\||\&|\&\&) ]]; then
+          expect=1                         # next word starts a new command
+        fi
+      done
+    done < $HISTFILE
+    # keep only names that still resolve to real external commands
+    local -a installed=( ${(k)commands} )
+    cmds=( ${cmds:*installed} )
+    print -rl -- $cmds >| $cache
+  fi
+  [[ -r $cache ]] && typeset -gaU _hist_commands=( ${(f)"$(<$cache)"} )
+}
+# Load the existing cache now (fast); do the rebuild check off the critical
+# startup path when zsh-defer is available.
+[[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history-commands ]] &&
+  typeset -gaU _hist_commands=( ${(f)"$(<${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history-commands)"} )
+if (( $+functions[zsh-defer] )); then
+  zsh-defer _hist_commands_rebuild
+else
+  _hist_commands_rebuild
+fi
+
+# Ignore any external command not in the history allowlist. Only affects the
+# `commands` tag in command position; aliases, functions, builtins, and paths
+# are untouched, and _ignored surfaces the rest as a fallback.
+zstyle -e ':completion:*:-command-:*:commands' ignored-patterns \
+  '(( $#_hist_commands )) && reply=( "^(${(j:|:)${(@b)_hist_commands}})" ) || reply=()'
+
 # chezmoi ships its own completion. Cache it (regenerate only when the chezmoi
 # binary changes) and bind it to both `chezmoi` and the `cz` alias.
 if (( $+commands[chezmoi] )); then

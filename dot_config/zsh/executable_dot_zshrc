@@ -5,10 +5,10 @@ fi
 if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
   source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
-{{- if contains "WSL" .chezmoi.kernel.osrelease }}
+
 export GALLIUM_DRIVER=d3d12
 export LIBVA_DRIVER_NAME=d3d12
-{{ end }}
+
 # Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -16,8 +16,14 @@ fi
 
 setopt complete_aliases
 
-# Set colors for folders/etc
-eval "$(dircolors -b "$ZDOTDIR/dircolors")"
+# Set colors for folders/etc (cached; dircolors only runs when the source changes)
+_dircolors_cache="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dircolors.zsh"
+if [[ ! -s "$_dircolors_cache" || "$ZDOTDIR/dircolors" -nt "$_dircolors_cache" ]]; then
+  mkdir -p "${_dircolors_cache:h}"
+  dircolors -b "$ZDOTDIR/dircolors" > "$_dircolors_cache"
+fi
+source "$_dircolors_cache"
+unset _dircolors_cache
 
 # Antidote
 source /usr/share/zsh-antidote/antidote.zsh
@@ -34,16 +40,29 @@ if [[ "${ZSH_GENCOMP}" == "1" ]]; then
   unset _gencomp_plugin
 fi
 
-# Source plugins
-for _rc in $ZDOTDIR/conf.d/*; do
+# Source plugins (skip compiled .zwc siblings; `source` auto-uses them).
+for _rc in $ZDOTDIR/conf.d/*(.N); do
+  [[ $_rc == *.zwc ]] && continue
   source "$_rc"
 done
 unset _rc
 
-for _rc in $ZDOTDIR/plugins.d/*; do
+for _rc in $ZDOTDIR/plugins.d/*(.N); do
+  [[ $_rc == *.zwc ]] && continue
   source "$_rc"
 done
 unset _rc
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
+
+# Byte-compile personal config in the background so future startups load the
+# faster .zwc versions. `source`/zsh startup auto-use a .zwc when it's current.
+() {
+  emulate -L zsh
+  local f
+  for f in $ZDOTDIR/.zshrc $ZDOTDIR/.p10k.zsh $ZDOTDIR/conf.d/*(.N) $ZDOTDIR/plugins.d/*(.N); do
+    [[ $f == *.zwc ]] && continue
+    [[ -s $f && ( ! -s $f.zwc || $f -nt $f.zwc ) ]] && zcompile -R -- $f.zwc $f
+  done
+} &!
