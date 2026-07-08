@@ -18,8 +18,8 @@ export CZ_DIR=$HOME/.local/share/chezmoi/
 export EDITOR="nvim"
 export VISUAL="nvim"
 # ZSH AUTOSUGGEST 
-export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
-export ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export BROWSER=edge
 export SSL_CERT_FILE=/etc/ssl/cert.pem
