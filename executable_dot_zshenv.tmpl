@@ -11,29 +11,29 @@ export HISTORY_SUBSTRING_SEARCH_PREFIXED="true"
 export TIME_STYLE="+%m-%d-%y %I:%M%p"
 export EZA_COLORS="*.tfvars=38;5;13:*.tf=38;5;13:*.yml=38;5;210:*.conf=38;5;215"
 
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export P10K_CONF=$HOME/.config/zsh/.p10k.zsh
 
 export CZ_CONF=$HOME/.config/chezmoi/chezmoi.toml
 export CZ_DIR=$HOME/.local/share/chezmoi/
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANGOHUD=1
+# ZSH AUTOSUGGEST 
+export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
+export ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 export BROWSER=edge
 export SSL_CERT_FILE=/etc/ssl/cert.pem
 export REQUESTS_CA_BUNDLE=/etc/ssl/cert.pem
 export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-
 # Point ssh clients at the systemd-user ssh-agent (see ~/.config/systemd/user/ssh-agent.service).
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$UID}/ssh-agent.socket"
+{{ else }}
+export MANGOHUD=1
 {{ end }}
 # Add Go
 export PATH=$PATH:/home/erik/go/bin
 
-ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
-ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
 
 # UV
 export PATH="/home/erik/.local/share/../bin:$PATH"
