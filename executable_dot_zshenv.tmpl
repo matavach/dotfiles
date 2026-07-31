@@ -26,11 +26,18 @@ export SSL_CERT_FILE=/etc/ssl/cert.pem
 export REQUESTS_CA_BUNDLE=/etc/ssl/cert.pem
 export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+
 # Point ssh clients at the systemd-user ssh-agent (see ~/.config/systemd/user/ssh-agent.service).
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$UID}/ssh-agent.socket"
 {{ else }}
 export MANGOHUD=1
 {{ end }}
+{{- if hasKey . "env" }}
+# Machine-local env vars (from chezmoi.toml [data.env])
+{{- range $name, $value := .env }}
+export {{ $name | upper }}={{ $value }}
+{{- end }}
+{{- end }}
 # Add Go
 export PATH=$PATH:/home/erik/go/bin
 
