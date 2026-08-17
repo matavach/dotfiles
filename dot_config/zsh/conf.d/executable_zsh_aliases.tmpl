@@ -1,5 +1,5 @@
-alias ls="eza -la --group-directories-first --icons"
-alias lsl="eza -l --group-directories-first --icons"
+alias ls="eza -la --group-directories-first --icons auto"
+alias lsl="eza -l --group-directories-first --icons auto"
 alias cd="z"
 alias cat="bat --style='default,-header-filename'"
 alias grep="rg"
@@ -9,5 +9,5 @@ alias cls="clear"
 alias tv="tidy-viewer"
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
 alias code="/mnt/c/Users/ematijevich/scoop/apps/vscode/current/bin/code"
-alias edge="$HOME/.local/bin/edge-open"
+alias firefox="$HOME/.local/bin/firefox-open"
 {{ end }}

@@ -5,8 +5,8 @@ text/markdown=nvim.desktop
 application/json=nvim.desktop
 
 {{ if contains "WSL" .chezmoi.kernel.osrelease -}}
-# WSL-only: route web/html to the Windows Edge wrapper (edge.desktop).
-x-scheme-handler/http=edge.desktop
-x-scheme-handler/https=edge.desktop
-text/html=edge.desktop
+# WSL-only: route web/html to the Windows Firefox wrapper (firefox.desktop).
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+text/html=firefox.desktop
 {{ end -}}

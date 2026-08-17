@@ -21,7 +21,7 @@ export VISUAL="nvim"
 ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(edit-select-move::forward-char edit-select-move::end-of-line forward-char end-of-line vi-forward-char vi-end-of-line vi-add-eol)
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(edit-select-move::forward-word)
 {{- if contains "WSL" .chezmoi.kernel.osrelease }}
-export BROWSER=edge
+export BROWSER="$HOME/.local/bin/firefox-open"
 export SSL_CERT_FILE=/etc/ssl/cert.pem
 export REQUESTS_CA_BUNDLE=/etc/ssl/cert.pem
 export CURL_CA_BUNDLE=/etc/ssl/cert.pem

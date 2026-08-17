@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Wrapper so xdg-open can launch the Windows install of Firefox (WSL).
+# Use PowerShell's Start-Process so URLs open as a new tab in the existing
+# Firefox window. (cmd.exe's `start` mangles URLs containing '&', breaking az login.)
+ps='/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
+firefox='C:\Users\ematijevich\scoop\apps\firefox\current\firefox.exe'
+exec "$ps" -NoProfile -Command "Start-Process -FilePath '$firefox' -ArgumentList '$*'"

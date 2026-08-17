@@ -21,8 +21,8 @@
 .cache/zsh/.zsh_history
 .cache/zsh/history-commands
 
-# WSL-only files: skip on non-WSL machines (Edge wrapper is only used under WSL).
+# WSL-only files: skip on non-WSL machines (Firefox wrapper is only used under WSL).
 {{ if not (contains "WSL" .chezmoi.kernel.osrelease) }}
-.local/bin/edge-open
-.local/share/applications/edge.desktop
+.local/bin/firefox-open
+.local/share/applications/firefox.desktop
 {{ end }}

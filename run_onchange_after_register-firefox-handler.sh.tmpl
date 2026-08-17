@@ -1,10 +1,10 @@
 {{ if contains "WSL" .chezmoi.kernel.osrelease -}}
 #!/bin/sh
-# Refresh the desktop-entry database so the Windows Edge wrapper (edge.desktop)
+# Refresh the desktop-entry database so the Windows Firefox wrapper (firefox.desktop)
 # is registered. The default http/https/html handler mappings live in
 # ~/.config/mimeapps.list (managed by chezmoi), so no xdg-mime call is needed.
-# Re-runs whenever edge.desktop changes, via this content hash:
-# edge.desktop sha256: {{ include "dot_local/share/applications/edge.desktop.tmpl" | sha256sum }}
+# Re-runs whenever firefox.desktop changes, via this content hash:
+# firefox.desktop sha256: {{ include "dot_local/share/applications/firefox.desktop.tmpl" | sha256sum }}
 set -eu
 update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
 {{ end -}}
