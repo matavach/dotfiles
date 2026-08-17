@@ -1,0 +1,26 @@
+extensions:
+  "cs":
+    filename:
+      foreground: Yellow
+    icon:
+      glyph: 󰌛
+      style:
+        is_bold: false
+        foreground: Yellow
+  "csproj":
+    filename:
+      foreground: purple
+    icon:
+      glyph: 󰌛
+      style:
+        is_underlined: true
+        is_bold: false
+        foreground: purple
+  "json":
+    filename:
+      foreground: Cyan
+    icon:
+      style:
+        foreground: Cyan
+
+  
