@@ -26,3 +26,9 @@
 .local/bin/firefox-open
 .local/share/applications/firefox.desktop
 {{ end }}
+
+# Copilot global agent instructions — machine-local only. Contains internal
+# environment details (corp proxy/CA paths, workplace conventions) that must not
+# be published to this public repo. Keep it at ~/.config/copilot/AGENTS.md,
+# untracked.
+.config/copilot
