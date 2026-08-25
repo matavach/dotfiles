@@ -39,11 +39,11 @@ export {{ $name | upper }}={{ $value }}
 {{- end }}
 {{- end }}
 # Add Go
-export PATH=$PATH:/home/erik/go/bin
+export PATH="$HOME/go/bin:$PATH"
 
 
 # UV
-export PATH="/home/erik/.local/share/../bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 
 
