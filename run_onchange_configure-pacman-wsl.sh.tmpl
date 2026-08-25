@@ -1,8 +1,9 @@
 {{ if and (contains "arch" .chezmoi.osRelease.id) (contains "WSL" .chezmoi.kernel.osrelease) -}}
 #!/bin/bash
-# On WSL behind the Zscaler proxy, pacman's low-speed timeout (<1 B/s for 10s)
-# aborts downloads while the proxy scans/buffers. DisableDownloadTimeout turns
-# that check off. Idempotent: only edits if the option isn't already active.
+# On WSL behind a TLS-inspecting corporate proxy, pacman's low-speed timeout
+# (<1 B/s for 10s) aborts downloads while the proxy scans/buffers the response.
+# DisableDownloadTimeout turns that check off. Idempotent: only edits if the
+# option isn't already active.
 set -eu
 
 if ! grep -q '^DisableDownloadTimeout' /etc/pacman.conf; then
