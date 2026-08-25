@@ -47,3 +47,10 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 
+
+# Extra search dir for Copilot CLI custom instructions. The instructions file
+# itself (~/.config/copilot/AGENTS.md) is deliberately NOT tracked by chezmoi --
+# see .chezmoiignore -- because this repo is public.
+# Note: this only makes the file *discoverable* as a directory-scoped, lazily
+# read AGENTS.md; it does not inline it into every prompt.
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="$HOME/.config/copilot"
