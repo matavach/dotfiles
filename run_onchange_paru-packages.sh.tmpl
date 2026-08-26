@@ -1,0 +1,21 @@
+{{ if contains "arch" .chezmoi.osRelease.id -}}
+#!/bin/bash
+set -euo pipefail
+
+wanted=(
+{{- range .packages.arch }}
+  {{ . }}
+{{- end }}
+{{- if contains "WSL" .chezmoi.kernel.osrelease }}
+{{- range .packages.wsl }}
+  {{ . }}
+{{- end }}
+{{- end }}
+)
+
+mapfile -t missing < <(comm -13 <(pacman -Qq | sort) <(printf '%s\n' "${wanted[@]}" | sort))
+
+if ((${#missing[@]})); then
+  paru -S --needed --noconfirm -- "${missing[@]}"
+fi
+{{ end -}}
