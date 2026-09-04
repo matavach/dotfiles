@@ -10,6 +10,7 @@ compdef _parucomp paru
 compdef _code c
 compdef _tidy-viewer tv
 compdef _bat cat
+compdef _az azdo
 
 # Hide internal functions from command/function completion — they are never
 # called manually and just clutter autocompletion:
