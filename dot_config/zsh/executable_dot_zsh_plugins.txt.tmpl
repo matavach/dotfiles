@@ -31,3 +31,11 @@ romkatv/zsh-defer
 
 zsh-users/zsh-autosuggestions
 SaeGon-Heo/zsh-autocomplete
+
+# Machine-local extra plugins from chezmoi data (chezmoi.toml [data]
+# extra_zsh_plugins). Keeps private/work repo URLs out of this public file.
+{{- if hasKey . "extra_zsh_plugins" }}
+{{- range .extra_zsh_plugins }}
+{{ . }}
+{{- end }}
+{{- end }}

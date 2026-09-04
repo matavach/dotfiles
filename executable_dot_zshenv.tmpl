@@ -26,7 +26,7 @@ export SSL_CERT_FILE=/etc/ssl/cert.pem
 export REQUESTS_CA_BUNDLE=/etc/ssl/cert.pem
 export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-
+export AZURE_DEVOPS_EXT_FORCE_PAT=1
 # Point ssh clients at the systemd-user ssh-agent (see ~/.config/systemd/user/ssh-agent.service).
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$UID}/ssh-agent.socket"
 {{ else }}
